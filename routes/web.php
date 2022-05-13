@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HighchartController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +13,27 @@ use App\Http\Controllers\HighchartController;
 |
 */
 
-
-Route::get('/charts', [App\Http\Controllers\Chartcontroller::class, 'index']);
-
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::view('profile', 'profile')->name('profile');
+    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])
+        ->name('profile.update');
+
+
+    Route::get('/establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'index'])->name('establishvisit');
+    //Route::view('establishvisit', 'establishvisit')->name('establishvisit');
+    Route::post('establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'establishmentvisit'])
+        ->name('establishvisit.establishmentvisit');
+
+    Route::resource('visits', \App\Http\Controllers\VisitController::class);
+
+});
 
 require __DIR__.'/auth.php';
