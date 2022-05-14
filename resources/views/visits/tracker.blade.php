@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Visits') }}
+            {{ __('Tracker') }}
         </h2>
     </x-slot>
 
@@ -17,7 +17,7 @@
                                         <thead class="bg-gray-50">
                                         <tr>
                                             <th scope="col" class="relative px-6 py-3">
-                                                Establishment you visit
+                                                Covid tracker and exposure
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
                                                 Date
@@ -25,13 +25,13 @@
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
-                                        @foreach ($visits as $task)
+                                        @foreach ($tracked as $track)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{ $task->establishment }}
+                                                {{ $track->status_desc }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {{ $task->created_at }}
+                                                {{ $track->created_at }}
                                             </td>
                                         </tr>
                                         @endforeach

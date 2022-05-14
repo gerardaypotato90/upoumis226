@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\establishmentvisit;
+use App\Models\exposure;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Hash;
 use Session;
 use Auth;
 
-class VisitController extends Controller
+class TrackerController extends Controller
 {
      /**
      * Display a listing of the resource.
@@ -19,10 +19,10 @@ class VisitController extends Controller
     public function index()
     {
 
-        $visits = establishmentvisit::where('userid', Auth::user()->id)
+        $tracked = exposure::where('userid', Auth::user()->id)
             ->paginate();
 
-        return view('visits.index', compact('visits'));
+        return view('visits.tracker', compact('tracked'));
     }
 
     /**
@@ -49,10 +49,10 @@ class VisitController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\establishmentvisit  $visits
+     * @param  \App\Models\exposure  $tracked
      * @return \Illuminate\Http\Response
      */
-    public function show(establishmentvisit $visits)
+    public function show(exposure $tracked)
     {
         //
     }
@@ -60,10 +60,10 @@ class VisitController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\establishmentvisit  $visits
+     * @param  \App\Models\exposure  $tracked
      * @return \Illuminate\Http\Response
      */
-    public function edit(establishmentvisit $visits)
+    public function edit(exposure $tracked)
     {
         //
     }
@@ -72,10 +72,10 @@ class VisitController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\establishmentvisit  $visits
+     * @param  \App\Models\exposure  $tracked
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, establishmentvisit $visits)
+    public function update(Request $request, exposure $tracked)
     {
         //
     }
@@ -83,10 +83,10 @@ class VisitController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\establishmentvisit  $visits
+     * @param  \App\Models\exposure  $tracked
      * @return \Illuminate\Http\Response
      */
-    public function destroy(establishmentvisit $visits)
+    public function destroy(exposure $tracked)
     {
         //
     }

@@ -18,9 +18,13 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => 'auth'], function() {
+
+    Route::get('/dashboard', [\App\Http\Controllers\HighchartController::class, 'handleChart'])->name('dashboard');
+
+    /*
     Route::get('/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('dashboard');*/
 
     Route::view('profile', 'profile')->name('profile');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])
@@ -28,11 +32,18 @@ Route::group(['middleware' => 'auth'], function() {
 
 
     Route::get('/establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'index'])->name('establishvisit');
-    //Route::view('establishvisit', 'establishvisit')->name('establishvisit');
+    //Route::get('/establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'expose'])->name('establishvisit');
+    //Route::view('establishvisit', 'establishvisit')->name('establishvisit'); expose
     Route::post('establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'establishmentvisit'])
         ->name('establishvisit.establishmentvisit');
 
+   Route::get('/exposurep', [\App\Http\Controllers\EstabVisitController::class, 'expoindex'])->name('exposurep');
+   Route::post('exposurep', [\App\Http\Controllers\EstabVisitController::class, 'expose'])
+        ->name('exposurep.expose');
+
+
     Route::resource('visits', \App\Http\Controllers\VisitController::class);
+    Route::resource('tracker', \App\Http\Controllers\TrackerController::class);
 
 });
 

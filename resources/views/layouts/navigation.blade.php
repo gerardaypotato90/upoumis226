@@ -20,6 +20,12 @@
                     </x-nav-link>
                     <x-nav-link :href="route('visits.index')" :active="request()->routeIs('visits.index')">
                         {{ __('Visits') }}
+                    </x-nav-link> 
+                    <x-nav-link :href="route('exposurep')" :active="request()->routeIs('exposurep')">
+                        {{ __('Exposure') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('tracker.index')" :active="request()->routeIs('tracker.index')">
+                        {{ __('Tracker') }}
                     </x-nav-link>
                 </div>
             </div>

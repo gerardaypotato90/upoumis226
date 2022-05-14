@@ -6,13 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\establishmentvisit;
 use App\Models\symptom;
+use App\Models\exposure;
+use App\Models\statusexposure;
 use Hash;
 use Session;
 use Auth;
 
 class EstabVisitController extends Controller
 {
-    //
     public function establishmentvisit(Request $request)
     {
         $request->validate([
@@ -31,10 +32,6 @@ class EstabVisitController extends Controller
                 $answers[] = $c;
             }
         }
-        
-       
-        
-
         $establishment = new establishmentvisit();       
         $establishment->name = Auth::user()->name;
         $establishment->establishment = $request->establishment;
@@ -45,24 +42,45 @@ class EstabVisitController extends Controller
         $establishment->userid = Auth::user()->id;  
         $res = $establishment->save();
 
-        return back()->with("success", "added successfully");
-
-
-        /*$establishment = establishment::create([
-            'name' => $user->name,
-            'establishment' => $request->establishment,
-            'temperature' => $request->temperature,
-            'address' => $user->address,
-            'telephone_number' => $user->telephone_number,
-            'userid' => $user->id,
-            
-        ]);*/
+        return back()->with("success", "Thank you!!");
 
     }
+    public function expose(Request $request)
+    {
+        $request->validate([
+            'exposures' => ['array', 'max:500'],
+        ]);
 
+        
+        $checked = $request->input('exposures');
+        if ($checked == null){
+            $answer[] = "No exposure or negative with COVID-19";
+        }
+        else{
+            foreach($checked as $c) {
+                $answer[] = $c;
+            }
+        }
+        $exposure = new exposure();       
+        $exposure->status_desc = implode(",", $answer);
+        $exposure->userid = Auth::user()->id;
+        $res = $exposure->save();
+        
+        return back()->with("message", "Notification sent");
+    }
     public function index()
     {
         $symp = symptom::all();
+        
+
         return view('establishvisit', compact('symp'));
+    }
+
+    public function expoindex()
+    {
+
+        $expo = statusexposure::all();
+
+        return view('exposurep', compact('expo'));
     }
 }

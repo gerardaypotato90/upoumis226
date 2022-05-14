@@ -24,7 +24,14 @@
                                 <div>
                                     <x-label for="email" :value="__('Email')" />
                                     <x-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{ auth()->user()->email }}" autofocus />
-                                </div>                              
+                                </div>
+                                <div>
+                                    <x-label for="new_password" :value="__('New password')" />
+                                    <x-input id="new_password" class="block mt-1 w-full"
+                                             type="password"
+                                             name="password"
+                                             autocomplete="new-password" />
+                                </div>                       
                             </div>
                             <div class="grid grid-rows-2 gap-6">
                                 <div>
@@ -35,15 +42,6 @@
                                     <x-label for="telephone_number" :value="__('Phone Number')" />
                                     <x-input id="telephone_number" class="block mt-1 w-full" type="text" name="telephone_number" value="{{ auth()->user()->telephone_number }}" autofocus />
                                 </div>
-                            </div>
-                            <div class="grid grid-rows-2 gap-6">
-                                <div>
-                                    <x-label for="new_password" :value="__('New password')" />
-                                    <x-input id="new_password" class="block mt-1 w-full"
-                                             type="password"
-                                             name="password"
-                                             autocomplete="new-password" />
-                                </div>
                                 <div>
                                     <x-label for="confirm_password" :value="__('Confirm password')" />
                                     <x-input id="confirm_password" class="block mt-1 w-full"
@@ -52,6 +50,7 @@
                                              autocomplete="confirm-password" />
                                 </div>
                             </div>
+                            
                         </div>
                         <div class="flex items-center justify-end mt-4">
                             <x-button class="ml-3">

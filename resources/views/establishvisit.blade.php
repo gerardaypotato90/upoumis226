@@ -10,6 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <x-auth-validation-errors />
+                    
                  
 
                     <form method="POST" action="{{ route('establishvisit') }}">
@@ -20,7 +21,7 @@
                                 <div>
                                     <x-label for="establishment" :value="__('Establishment')" />
                                     <x-input id="establishment" class="block mt-1 w-full" type="text" name="establishment" :value="old('establishment')" autofocus /><br>
-                                    <x-label for="HealthDeclaration" :value="__('Health Declaration')" />
+                                    <x-label for="HealthDeclaration" :value="__('Health Declaration (Please check if you have any of this symptoms)')" />
                                     @foreach ($symp as $symps)
                                     <x-input id="sympy" class=" mt-1" type="Checkbox" name="symptoms[]" value="{{ $symps->symp }}" autofocus />
                                     <x-label2 for="sympy" value="{{ $symps->symp }}" /><br>
