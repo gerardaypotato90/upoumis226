@@ -81,6 +81,18 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('establishvisit')" :active="request()->routeIs('establishvisit')">
+                {{ __('Fill up') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('visits.index')" :active="request()->routeIs('visits.index')">
+                {{ __('Visits') }}
+            </x-responsive-nav-link> 
+            <x-responsive-nav-link :href="route('exposurep')" :active="request()->routeIs('exposurep')">
+                {{ __('Exposure') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('tracker.index')" :active="request()->routeIs('tracker.index')">
+                {{ __('Tracker') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

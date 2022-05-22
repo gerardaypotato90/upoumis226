@@ -16,8 +16,16 @@
                         @csrf
                         <div class="grid grid-cols-2 gap-6">
                             <div class="grid grid-rows-1 gap-6">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="relative px-6 py-3">
+                                                This is to notify that....
+                                            </th>
+                                        </tr>
+                                </thead>
+</table>
                                 <div>
-                                    <x-label for="NotifyifPossitive/exposeto" :value="__('Notify if Possitive/expose to')" /><br><br>
                                     @foreach ($expo as $expos)
 
                                     <label class="switch">
