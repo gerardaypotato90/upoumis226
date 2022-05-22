@@ -22,6 +22,9 @@
                                             <th scope="col" class="relative px-6 py-3">
                                                 Date
                                             </th>
+                                            <th scope="col" class="relative px-6 py-3">
+                                                <span class="sr-only">Delete</span>
+                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
@@ -33,6 +36,10 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ $track->created_at }}
                                             </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <x-input id="sympy" class=" mt-1" type="hidden" name="trk" value="{{ $track->id }}" autofocus />
+                                                <a href="delete/{{ $track->id }}"  class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                         </tbody>
@@ -40,7 +47,7 @@
 
                                 </div>
                                 <div class="mt-4">
-                                
+                                {{ $tracked->links() }}
                                 </div>
                             </div>
                         </div>

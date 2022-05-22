@@ -22,6 +22,9 @@
                                             <th scope="col" class="relative px-6 py-3">
                                                 Date
                                             </th>
+                                            <th scope="col" class="relative px-6 py-3">
+                                                <span class="sr-only">Delete</span>
+                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody class="bg-white divide-y divide-gray-200">
@@ -33,6 +36,9 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ $task->created_at }}
                                             </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                <a href="remove/{{ $task->id }}"  class="text-indigo-600 hover:text-indigo-900">Delete</a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                         </tbody>
@@ -40,7 +46,7 @@
 
                                 </div>
                                 <div class="mt-4">
-                                
+                                {{ $visits->links() }}
                                 </div>
                             </div>
                         </div>

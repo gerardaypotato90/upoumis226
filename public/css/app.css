@@ -1049,6 +1049,7 @@ select {
 }
 .font-medium {
   font-weight: 500;
+  text-align: center;
 }
 .font-semibold {
   font-weight: 600;
@@ -1074,6 +1075,7 @@ select {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+  text-align: center;
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
@@ -1447,6 +1449,14 @@ select {
   }
 }
 
+@media (min-width: 1024px) {
+
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
 .switch {
   position: relative;
   display: inline-block;
@@ -1508,11 +1518,3 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-@media (min-width: 1024px) {
-
-  .lg\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-

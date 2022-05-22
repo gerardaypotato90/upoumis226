@@ -30,7 +30,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])
         ->name('profile.update');
 
-
+    Route::get('/delete/{id}', [\App\Http\Controllers\DeleteController::class, 'destroy'])->name('delete');
+    Route::get('/remove/{id}', [\App\Http\Controllers\DeleteController::class, 'removed'])->name('remove');
     Route::get('/establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'index'])->name('establishvisit');
     //Route::get('/establishvisit', [\App\Http\Controllers\EstabVisitController::class, 'expose'])->name('establishvisit');
     //Route::view('establishvisit', 'establishvisit')->name('establishvisit'); expose
@@ -42,9 +43,9 @@ Route::group(['middleware' => 'auth'], function() {
         ->name('exposurep.expose');
 
 
-    Route::resource('visits', \App\Http\Controllers\VisitController::class);
-    Route::resource('tracker', \App\Http\Controllers\TrackerController::class);
-
+   Route::resource('visits', \App\Http\Controllers\VisitController::class);
+   Route::resource('tracker', \App\Http\Controllers\TrackerController::class);
+   
 });
 
 require __DIR__.'/auth.php';

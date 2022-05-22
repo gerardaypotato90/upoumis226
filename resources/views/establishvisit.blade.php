@@ -21,10 +21,14 @@
                                 <div>
                                     <x-label for="establishment" :value="__('Establishment')" />
                                     <x-input id="establishment" class="block mt-1 w-full" type="text" name="establishment" :value="old('establishment')" autofocus /><br>
-                                    <x-label for="HealthDeclaration" :value="__('Health Declaration (Please check if you have any of this symptoms)')" />
+                                    <x-label for="HealthDeclaration" :value="__('Health Declaration (Please check if you have any of this symptoms)')" /> <br>
                                     @foreach ($symp as $symps)
+                                    <label class="switch">
                                     <x-input id="sympy" class=" mt-1" type="Checkbox" name="symptoms[]" value="{{ $symps->symp }}" autofocus />
-                                    <x-label2 for="sympy" value="{{ $symps->symp }}" /><br>
+                                    <span class="slider"></span>
+                                    </label>
+                                    <x-label2 for="sympy" value="{{ $symps->symp }}" /><br><br>
+                                    <hr><br>
                                     @endforeach
                                 </div>                   
                             </div>

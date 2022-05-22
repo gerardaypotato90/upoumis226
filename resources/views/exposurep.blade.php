@@ -25,6 +25,7 @@
                                     <span class="slider"></span>
                                     </label>
                                     <x-label2 for="exp" value="{{ $expos->expostat }}" /><br><br>
+                                    <hr><br>
                                     @endforeach
                                 </div>                   
                             </div>
