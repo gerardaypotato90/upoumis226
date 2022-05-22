@@ -72,11 +72,6 @@
                                             <thead class="bg-gray-50">
                                             <tr>
                                                 <th scope="col" class="relative px-6 py-3">
-                                                Cases per region
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col" class="relative px-6 py-3">
                                                 Location
                                                 </th>
                                                 <th scope="col" class="relative px-6 py-3">
